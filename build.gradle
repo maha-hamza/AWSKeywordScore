@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.7.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'war'
+
+}
+
+group 'aws-keyword-rank'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    providedCompile group: 'com.konghq', name: 'unirest-java', version: '2.2.00'
+    compile group: 'com.konghq', name: 'unirest-objectmapper-jackson', version: '2.3.16'
+    compile group: 'net.ricecode', name: 'string-similarity', version: '1.0.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+}
